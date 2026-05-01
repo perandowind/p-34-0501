@@ -17,7 +17,6 @@ class Rq(
     private val response: HttpServletResponse
 ) {
 
-
     val actor: Member
         get() = SecurityContextHolder
             .getContext()
@@ -65,4 +64,6 @@ class Rq(
     fun deleteCookie(name: String) = addCookie(name, null)
 
     fun sendRedirect(url: String) = response.sendRedirect(url)
+
+
 }
