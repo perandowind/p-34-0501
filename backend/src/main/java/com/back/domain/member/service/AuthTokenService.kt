@@ -13,9 +13,7 @@ internal class AuthTokenService(
     @Value("\${custom.jwt.expiration}")
     private val expireTime: Long
 ) {
-
-
-    fun genAccessToken(member: Member): String? {
+    fun genAccessToken(member: Member): String {
         return Ut.jwt.toString(
             secretKey,
             expireTime,
@@ -27,7 +25,7 @@ internal class AuthTokenService(
         )
     }
 
-    fun payloadOrNull(jwt: String): MutableMap<String, Any>? {
+    fun payloadOrNull(jwt: String): Map<String, Any>? {
         return Ut.jwt.payloadOrNull(jwt, secretKey)
     }
 }
