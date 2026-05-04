@@ -5,7 +5,6 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import lombok.NoArgsConstructor
 import org.springframework.security.core.authority.SimpleGrantedAuthority
-import java.util.List
 
 @Entity
 @NoArgsConstructor
@@ -32,12 +31,12 @@ class Member(
     val isAdmin: Boolean
         get() = "admin" == username
 
-    val authorities: MutableList<SimpleGrantedAuthority>
+    val authorities: List<SimpleGrantedAuthority>
         get() {
-            if (this.isAdmin) {
-                return List.of<SimpleGrantedAuthority>(SimpleGrantedAuthority("ROLE_ADMIN"))
+            return if (isAdmin) {
+                listOf(SimpleGrantedAuthority("ROLE_ADMIN"))
             } else {
-                return List.of<SimpleGrantedAuthority>(SimpleGrantedAuthority("ROLE_USER"))
+                listOf(SimpleGrantedAuthority("ROLE_USER"))
             }
         }
 }
