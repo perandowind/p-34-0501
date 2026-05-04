@@ -11,7 +11,6 @@ import java.util.*
 import java.util.function.Consumer
 
 @Service
-@RequiredArgsConstructor
 class MemberService(
     private val memberRepository: MemberRepository,
     private val passwordEncoder: PasswordEncoder,

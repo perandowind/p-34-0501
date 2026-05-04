@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/adm/posts")
 @Tag(name = "ApiV1AdmPostController", description = "관리자용 글 API")
 @SecurityRequirement(name = "bearerAuth")

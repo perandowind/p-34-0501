@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/posts/{postId}/comments")
 @Tag(name = "ApiV1CommentController", description = "댓글 API")
 class ApiV1CommentController(

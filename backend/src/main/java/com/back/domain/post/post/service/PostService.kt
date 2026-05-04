@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 @Service
-@RequiredArgsConstructor
 class PostService(
     private val postRepository: PostRepository
 ) {

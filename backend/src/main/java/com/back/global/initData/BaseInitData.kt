@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Lazy
 import org.springframework.transaction.annotation.Transactional
 
 @Configuration
-@RequiredArgsConstructor
 class BaseInitData(
     @Autowired
     @Lazy
