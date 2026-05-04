@@ -24,7 +24,7 @@ class Post(
     )
     val comments: MutableList<Comment> = ArrayList<Comment>()
 ) :
-    BaseEntity() {
+    BaseEntity(0) {
 
     constructor(author: Member, title: String, content: String) : this(author, title, content, ArrayList<Comment>())
 
@@ -44,7 +44,7 @@ class Post(
     // 댓글 조회
     fun findCommentById(commentId: Int): Optional<Comment?> {
         return comments.stream()
-            .filter { c: Comment? -> c!!.getId() == commentId }
+            .filter { c: Comment? -> c!!.id == commentId }
             .findFirst()
     }
 
@@ -60,13 +60,13 @@ class Post(
     }
 
     fun checkModify(actor: Member) {
-        if (actor.getId() !== this.author!!.getId()) {
+        if (actor != this.author) {
             throw ServiceException("403-1", "수정 권한이 없습니다.")
         }
     }
 
     fun checkDelete(actor: Member) {
-        if (actor.getId() !== this.author!!.getId()) {
+        if (actor != this.author) {
             throw ServiceException("403-2", "삭제 권한이 없습니다.")
         }
     }

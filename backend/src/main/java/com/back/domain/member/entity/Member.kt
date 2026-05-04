@@ -15,11 +15,11 @@ class Member(
     var nickname: String,
     @Column(unique = true)
     var apiKey: String
-) : BaseEntity() {
+) : BaseEntity(0) {
 
     constructor(id: Int, username: String, nickname: String)
             : this(username, "", nickname, "") {
-        this.setId(id)
+        this.id = id
         this.username = username
         this.nickname = nickname
     }
@@ -30,12 +30,12 @@ class Member(
     val isAdmin: Boolean
         get() = "admin" == username
 
-    val authorities: List<SimpleGrantedAuthority>
+    val authorities: MutableCollection<SimpleGrantedAuthority>
         get() {
             return if (isAdmin) {
-                listOf(SimpleGrantedAuthority("ROLE_ADMIN"))
+                mutableListOf(SimpleGrantedAuthority("ROLE_ADMIN"))
             } else {
-                listOf(SimpleGrantedAuthority("ROLE_USER"))
+                mutableListOf(SimpleGrantedAuthority("ROLE_USER"))
             }
         }
 }

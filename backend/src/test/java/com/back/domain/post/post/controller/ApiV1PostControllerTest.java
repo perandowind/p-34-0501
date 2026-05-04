@@ -93,8 +93,8 @@ public class ApiV1PostControllerTest {
         Post post = postRepository.findById(targetId).get();
 
         resultActions
-                .andExpect(jsonPath("$.createDate").value(matchesPattern(post.getCreateDate().toString().replaceAll("0+$", "") + ".*")))
-                .andExpect(jsonPath("$.modifyDate").value(matchesPattern(post.getModifyDate().toString().replaceAll("0+$", "") + ".*")));
+                .andExpect(jsonPath("$.createDate").value(matchesPattern(post.createDate.toString().replaceAll("0+$", "") + ".*")))
+                .andExpect(jsonPath("$.modifyDate").value(matchesPattern(post.modifyDate.toString().replaceAll("0+$", "") + ".*")));
 
 //        Post post = postRepository.findById(targetId).get();
 //        resultActions

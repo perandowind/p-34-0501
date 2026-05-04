@@ -16,20 +16,20 @@ class Comment(
     @ManyToOne var author: Member,
     var content: String,
     @ManyToOne var post: Post
-) : BaseEntity() {
+) : BaseEntity(0) {
 
     fun update(content: String) {
         this.content = content
     }
 
     fun checkActorModify(actor: Member) {
-        if (this.author.getId() != actor.getId()) {
+        if (this.author != actor) {
             throw ServiceException("403-1", "댓글 수정 권한이 없습니다.")
         }
     }
 
     fun checkActorDelete(actor: Member) {
-        if (this.author.getId() != actor.getId()) {
+        if (this.author != actor) {
             throw ServiceException("403-2", "댓글 삭제 권한이 없습니다.")
         }
     }
