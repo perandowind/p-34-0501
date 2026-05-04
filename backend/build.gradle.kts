@@ -9,7 +9,7 @@ plugins {
 
 group = "com.back"
 version = "0.0.1-SNAPSHOT"
-description = "rest-api"
+description = "kotlin"
 
 java {
 	toolchain {
