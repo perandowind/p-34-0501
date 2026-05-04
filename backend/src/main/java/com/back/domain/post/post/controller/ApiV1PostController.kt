@@ -43,7 +43,6 @@ class ApiV1PostController(
         return PostDto(post)
     }
 
-    @JvmRecord
     data class PostWriteReqBody(
         val title: @Size(
             min = 2,
@@ -58,7 +57,6 @@ class ApiV1PostController(
         ) String
     )
 
-    @JvmRecord
     data class PostWriteResBody(
         val postDto: PostDto?
     )
@@ -82,7 +80,6 @@ class ApiV1PostController(
     }
 
 
-    @JvmRecord
     data class PostModifyReqBody(
         val title: @Size(
             min = 2,
@@ -97,7 +94,6 @@ class ApiV1PostController(
         ) String
     )
 
-    @JvmRecord
     data class PostModifyResBody(
         val postDto: PostDto
     )
